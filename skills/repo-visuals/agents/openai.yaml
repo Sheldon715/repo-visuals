@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repo Visuals"
+  short_description: "Create coordinated launch images for an open-source repo"
+  default_prompt: "Use $repo-visuals to create a coordinated visual launch kit for this repository."

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "project": {
+    "name": "repo-visuals",
+    "tagline": "Generate a consistent visual launch kit for any open-source repository.",
+    "release": "0.1.0",
+    "repository_url": "https://github.com/Sheldon715/repo-visuals",
+    "tech_stack": [
+      "Agent Skill",
+      "Python",
+      "Pillow"
+    ],
+    "source_path": "repo-visuals"
+  },
+  "brand": {
+    "primary": "#8B5CF6",
+    "secondary": "#22D3EE",
+    "background": "#09090B",
+    "foreground": "#F8FAFC",
+    "direction": "editorial technology artwork with luminous depth and restrained detail"
+  },
+  "copy": {
+    "eyebrow": "OPEN SOURCE · VISUAL LAUNCH KIT",
+    "title": "repo-visuals",
+    "subtitle": "Generate a consistent visual launch kit for any open-source repository.",
+    "release_label": "RELEASE v0.1.0"
+  },
+  "assets": [
+    {
+      "id": "readme-hero",
+      "width": 1600,
+      "height": 900,
+      "format": "PNG"
+    },
+    {
+      "id": "github-social",
+      "width": 1280,
+      "height": 640,
+      "format": "JPEG"
+    },
+    {
+      "id": "release-card",
+      "width": 1200,
+      "height": 675,
+      "format": "PNG"
+    }
+  ],
+  "image_prompt": {
+    "use_case": "ads-marketing",
+    "asset_type": "text-free master artwork for open-source repository launch assets",
+    "primary_request": "Create a polished abstract visual system for repo-visuals, an open-source project described as: Generate a consistent visual launch kit for any open-source repository.",
+    "style": "editorial technology artwork with luminous depth and restrained detail",
+    "composition": "Wide adaptable composition; quiet dark negative space on the left; visual focus on the right-center; important detail away from all edges",
+    "palette": "#09090B, #8B5CF6, #22D3EE",
+    "constraints": "No text, letters, numbers, logos, badges, watermarks, screenshots, user interfaces, people, or third-party marks"
+  }
+}
