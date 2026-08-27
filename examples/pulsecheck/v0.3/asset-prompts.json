@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "mode": "full-canvas-imagegen",
+  "reference_artwork": "full-poster.png",
+  "assets": [
+    {
+      "id": "readme-hero",
+      "prompt": {
+        "use_case": "ads-marketing",
+        "asset_type": "cinematic 16:9 repository hero; immediate product recognition at README width",
+        "primary_request": "Create the complete readme-hero for pulsecheck in the approved Signal Terminal identity. Generate the entire finished design, including art direction, integrated typography, layout, texture, and final polish.",
+        "reference_image": "Use full-poster.png as the identity reference. Preserve its visual metaphor, material language, palette, and typographic personality; redesign the composition for this aspect ratio instead of merely cropping it.",
+        "sketch": {
+          "grid": "asymmetric 5-column poster grid",
+          "type_zone": "project name integrated into the left-center instrument panel",
+          "visual_zone": "monitoring instrument occupies the right two-thirds",
+          "hierarchy": "small category label, dominant product name, quiet one-line promise"
+        },
+        "palette": "#050806, #B7FF5A, #80F5D2, #F4FFE8",
+        "text": "Render exactly these readable lines and no others: \"pulsecheck\", \"Know what is up before your users do.\". Spell and punctuate every character verbatim.",
+        "dimensions": {
+          "width": 1600,
+          "height": 900,
+          "format": "PNG"
+        },
+        "constraints": "Typography must feel authored as part of the artwork, not pasted into a box. No extra words, fake metrics, installation commands, UI screenshots, logos, badges, watermarks, third-party marks, generic purple gradients, or plain template overlays.",
+        "qa": [
+          "exact text and punctuation",
+          "title readable at thumbnail size",
+          "typography visibly interacts with the visual concept",
+          "no unsupported claims or extra readable text",
+          "important content clear of the outer five percent"
+        ]
+      }
+    },
+    {
+      "id": "github-social",
+      "prompt": {
+        "use_case": "ads-marketing",
+        "asset_type": "bold 2:1 social preview; readable and distinctive as a small link thumbnail",
+        "primary_request": "Create the complete github-social for pulsecheck in the approved Signal Terminal identity. Generate the entire finished design, including art direction, integrated typography, layout, texture, and final polish.",
+        "reference_image": "Use full-poster.png as the identity reference. Preserve its visual metaphor, material language, palette, and typographic personality; redesign the composition for this aspect ratio instead of merely cropping it.",
+        "sketch": {
+          "grid": "asymmetric 5-column poster grid",
+          "type_zone": "project name integrated into the left-center instrument panel",
+          "visual_zone": "monitoring instrument occupies the right two-thirds",
+          "hierarchy": "small category label, dominant product name, quiet one-line promise"
+        },
+        "palette": "#050806, #B7FF5A, #80F5D2, #F4FFE8",
+        "text": "Render exactly these readable lines and no others: \"pulsecheck\", \"Know what is up before your users do.\". Spell and punctuate every character verbatim.",
+        "dimensions": {
+          "width": 1280,
+          "height": 640,
+          "format": "JPEG"
+        },
+        "constraints": "Typography must feel authored as part of the artwork, not pasted into a box. No extra words, fake metrics, installation commands, UI screenshots, logos, badges, watermarks, third-party marks, generic purple gradients, or plain template overlays.",
+        "qa": [
+          "exact text and punctuation",
+          "title readable at thumbnail size",
+          "typography visibly interacts with the visual concept",
+          "no unsupported claims or extra readable text",
+          "important content clear of the outer five percent"
+        ]
+      }
+    },
+    {
+      "id": "release-card",
+      "prompt": {
+        "use_case": "ads-marketing",
+        "asset_type": "editorial 16:9 release announcement; release marker woven into the composition",
+        "primary_request": "Create the complete release-card for pulsecheck in the approved Signal Terminal identity. Generate the entire finished design, including art direction, integrated typography, layout, texture, and final polish.",
+        "reference_image": "Use full-poster.png as the identity reference. Preserve its visual metaphor, material language, palette, and typographic personality; redesign the composition for this aspect ratio instead of merely cropping it.",
+        "sketch": {
+          "grid": "asymmetric 5-column poster grid",
+          "type_zone": "project name integrated into the left-center instrument panel",
+          "visual_zone": "monitoring instrument occupies the right two-thirds",
+          "hierarchy": "small category label, dominant product name, quiet one-line promise"
+        },
+        "palette": "#050806, #B7FF5A, #80F5D2, #F4FFE8",
+        "text": "Render exactly these readable lines and no others: \"RELEASE v0.8.0\", \"pulsecheck\", \"Know what is up before your users do.\". Spell and punctuate every character verbatim.",
+        "dimensions": {
+          "width": 1200,
+          "height": 675,
+          "format": "PNG"
+        },
+        "constraints": "Typography must feel authored as part of the artwork, not pasted into a box. No extra words, fake metrics, installation commands, UI screenshots, logos, badges, watermarks, third-party marks, generic purple gradients, or plain template overlays.",
+        "qa": [
+          "exact text and punctuation",
+          "title readable at thumbnail size",
+          "typography visibly interacts with the visual concept",
+          "no unsupported claims or extra readable text",
+          "important content clear of the outer five percent"
+        ]
+      }
+    },
+    {
+      "id": "product-gallery",
+      "prompt": {
+        "use_case": "ads-marketing",
+        "asset_type": "polished wide gallery image; communicates the product metaphor at a glance",
+        "primary_request": "Create the complete product-gallery for pulsecheck in the approved Signal Terminal identity. Generate the entire finished design, including art direction, integrated typography, layout, texture, and final polish.",
+        "reference_image": "Use full-poster.png as the identity reference. Preserve its visual metaphor, material language, palette, and typographic personality; redesign the composition for this aspect ratio instead of merely cropping it.",
+        "sketch": {
+          "grid": "asymmetric 5-column poster grid",
+          "type_zone": "project name integrated into the left-center instrument panel",
+          "visual_zone": "monitoring instrument occupies the right two-thirds",
+          "hierarchy": "small category label, dominant product name, quiet one-line promise"
+        },
+        "palette": "#050806, #B7FF5A, #80F5D2, #F4FFE8",
+        "text": "Render exactly these readable lines and no others: \"pulsecheck\", \"Know what is up before your users do.\". Spell and punctuate every character verbatim.",
+        "dimensions": {
+          "width": 1270,
+          "height": 760,
+          "format": "PNG"
+        },
+        "constraints": "Typography must feel authored as part of the artwork, not pasted into a box. No extra words, fake metrics, installation commands, UI screenshots, logos, badges, watermarks, third-party marks, generic purple gradients, or plain template overlays.",
+        "qa": [
+          "exact text and punctuation",
+          "title readable at thumbnail size",
+          "typography visibly interacts with the visual concept",
+          "no unsupported claims or extra readable text",
+          "important content clear of the outer five percent"
+        ]
+      }
+    },
+    {
+      "id": "launch-post",
+      "prompt": {
+        "use_case": "ads-marketing",
+        "asset_type": "vertical 4:5 campaign poster; strong top-to-bottom rhythm and mobile readability",
+        "primary_request": "Create the complete launch-post for pulsecheck in the approved Signal Terminal identity. Generate the entire finished design, including art direction, integrated typography, layout, texture, and final polish.",
+        "reference_image": "Use full-poster.png as the identity reference. Preserve its visual metaphor, material language, palette, and typographic personality; redesign the composition for this aspect ratio instead of merely cropping it.",
+        "sketch": {
+          "grid": "asymmetric 5-column poster grid",
+          "type_zone": "project name integrated into the left-center instrument panel",
+          "visual_zone": "monitoring instrument occupies the right two-thirds",
+          "hierarchy": "small category label, dominant product name, quiet one-line promise"
+        },
+        "palette": "#050806, #B7FF5A, #80F5D2, #F4FFE8",
+        "text": "Render exactly these readable lines and no others: \"RELEASE v0.8.0\", \"pulsecheck\", \"Know what is up before your users do.\". Spell and punctuate every character verbatim.",
+        "dimensions": {
+          "width": 1200,
+          "height": 1500,
+          "format": "JPEG"
+        },
+        "constraints": "Typography must feel authored as part of the artwork, not pasted into a box. No extra words, fake metrics, installation commands, UI screenshots, logos, badges, watermarks, third-party marks, generic purple gradients, or plain template overlays.",
+        "qa": [
+          "exact text and punctuation",
+          "title readable at thumbnail size",
+          "typography visibly interacts with the visual concept",
+          "no unsupported claims or extra readable text",
+          "important content clear of the outer five percent"
+        ]
+      }
+    },
+    {
+      "id": "community-square",
+      "prompt": {
+        "use_case": "ads-marketing",
+        "asset_type": "square community tile; compact hierarchy and unmistakable silhouette",
+        "primary_request": "Create the complete community-square for pulsecheck in the approved Signal Terminal identity. Generate the entire finished design, including art direction, integrated typography, layout, texture, and final polish.",
+        "reference_image": "Use full-poster.png as the identity reference. Preserve its visual metaphor, material language, palette, and typographic personality; redesign the composition for this aspect ratio instead of merely cropping it.",
+        "sketch": {
+          "grid": "asymmetric 5-column poster grid",
+          "type_zone": "project name integrated into the left-center instrument panel",
+          "visual_zone": "monitoring instrument occupies the right two-thirds",
+          "hierarchy": "small category label, dominant product name, quiet one-line promise"
+        },
+        "palette": "#050806, #B7FF5A, #80F5D2, #F4FFE8",
+        "text": "Render exactly these readable lines and no others: \"pulsecheck\", \"Know what is up before your users do.\". Spell and punctuate every character verbatim.",
+        "dimensions": {
+          "width": 1080,
+          "height": 1080,
+          "format": "PNG"
+        },
+        "constraints": "Typography must feel authored as part of the artwork, not pasted into a box. No extra words, fake metrics, installation commands, UI screenshots, logos, badges, watermarks, third-party marks, generic purple gradients, or plain template overlays.",
+        "qa": [
+          "exact text and punctuation",
+          "title readable at thumbnail size",
+          "typography visibly interacts with the visual concept",
+          "no unsupported claims or extra readable text",
+          "important content clear of the outer five percent"
+        ]
+      }
+    }
+  ]
+}

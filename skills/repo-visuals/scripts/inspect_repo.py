@@ -240,20 +240,20 @@ def build_manifest(args: argparse.Namespace) -> dict[str, Any]:
         ],
         "image_prompt": {
             "use_case": "ads-marketing",
-            "asset_type": "text-free master artwork for open-source repository launch assets",
+            "asset_type": "complete open-source launch visual with integrated typography",
             "primary_request": (
                 f"Create a polished abstract visual system for {name}, "
                 f"an open-source project described as: {tagline}"
             ),
             "style": args.direction,
             "composition": (
-                "Wide adaptable composition; quiet dark negative space on the left; "
-                "visual focus on the right-center; important detail away from all edges"
+                "Treat typography, product metaphor, texture, and layout as one authored composition"
             ),
             "palette": f"{args.background}, {args.primary}, {args.secondary}",
+            "text": f'Render the project name exactly as "{name}" and the tagline exactly as "{tagline}".',
             "constraints": (
-                "No text, letters, numbers, logos, badges, watermarks, screenshots, "
-                "user interfaces, people, or third-party marks"
+                "No extra copy, fake claims, logos, badges, watermarks, people, third-party marks, "
+                "or generic text-on-background template composition"
             ),
         },
     }

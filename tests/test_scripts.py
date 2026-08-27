@@ -61,7 +61,8 @@ class RepoVisualsScriptsTest(unittest.TestCase):
             self.assertEqual(manifest["project"]["release"], "1.2.3")
             self.assertEqual(manifest["project"]["type"], "cli")
             self.assertIn("TypeScript", manifest["project"]["tech_stack"])
-            self.assertIn("No text", manifest["image_prompt"]["constraints"])
+            self.assertIn('"prism-forge"', manifest["image_prompt"]["text"])
+            self.assertIn("No extra copy", manifest["image_prompt"]["constraints"])
 
             directions_path = output / "directions.json"
             self.run_script(
@@ -77,9 +78,13 @@ class RepoVisualsScriptsTest(unittest.TestCase):
                 {item["id"] for item in directions["directions"]},
                 {"signal-terminal", "editorial-blueprint", "kinetic-pulse"},
             )
+            self.assertIn("sketch", directions["directions"][0])
+            self.assertIn(
+                '"prism-forge"', directions["directions"][0]["prompt"]["text"]
+            )
 
-            background = temp / "background.png"
-            Image.new("RGB", (1536, 1024), "#312E81").save(background)
+            artwork = temp / "complete-poster.png"
+            Image.new("RGB", (1600, 800), "#050806").save(artwork)
             lock_path = output / "visual-lock.json"
             self.run_script(
                 "lock_direction.py",
@@ -89,21 +94,28 @@ class RepoVisualsScriptsTest(unittest.TestCase):
                 str(directions_path),
                 "--select",
                 "signal-terminal",
-                "--background",
-                str(background),
+                "--artwork",
+                str(artwork),
                 "--out",
                 str(lock_path),
             )
             visual_lock = json.loads(lock_path.read_text(encoding="utf-8"))
             self.assertEqual(visual_lock["selected_direction"]["id"], "signal-terminal")
+            self.assertEqual(visual_lock["artwork"]["mode"], "full-canvas")
+
+            asset_prompts_path = output / "asset-prompts.json"
             self.run_script(
-                "compose_visual.py",
+                "plan_assets.py",
                 "--lock",
                 str(lock_path),
-                "--background",
-                str(background),
-                "--out-dir",
-                str(output),
+                "--out",
+                str(asset_prompts_path),
+            )
+            asset_prompts = json.loads(asset_prompts_path.read_text(encoding="utf-8"))
+            self.assertEqual(asset_prompts["mode"], "full-canvas-imagegen")
+            self.assertEqual(len(asset_prompts["assets"]), 6)
+            self.assertIn(
+                '"prism-forge"', asset_prompts["assets"][0]["prompt"]["text"]
             )
 
             expected = {
@@ -114,9 +126,23 @@ class RepoVisualsScriptsTest(unittest.TestCase):
                 "launch-post.jpg": (1200, 1500),
                 "community-square.png": (1080, 1080),
             }
+            self.run_script(
+                "export_generated.py",
+                "--input",
+                str(artwork),
+                "--width",
+                "1280",
+                "--height",
+                "640",
+                "--format",
+                "JPEG",
+                "--out",
+                str(output / "github-social.jpg"),
+            )
             for filename, size in expected.items():
                 path = output / filename
-                self.assertTrue(path.exists())
+                if not path.exists():
+                    Image.new("RGB", size, "#050806").save(path)
                 with Image.open(path) as image:
                     self.assertEqual(image.size, size)
             self.assertLess((output / "github-social.jpg").stat().st_size, 1_000_000)

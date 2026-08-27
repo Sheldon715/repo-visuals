@@ -1,40 +1,26 @@
 # Asset specifications
 
-Read this reference when changing output dimensions, formats, layout, copy, or export behavior.
+Read this reference when changing output dimensions, formats, exact copy, or export behavior.
 
-## Default assets
-
-| Asset | Dimensions | Format | Purpose |
+| Asset | Dimensions | Format | Creative requirement |
 | --- | ---: | --- | --- |
-| README hero | 1600 x 900 | PNG | First visual in a repository README |
-| GitHub social preview | 1280 x 640 | JPEG | Repository link previews on social platforms |
-| Release card | 1200 x 675 | PNG | Release notes and announcement posts |
-| Product gallery | 1270 x 760 | PNG | Product-directory and launch galleries |
-| Launch post | 1200 x 1500 | JPEG | Portrait social announcement |
-| Community square | 1080 x 1080 | PNG | Community, chat, and directory thumbnail |
+| README hero | 1600 × 900 | PNG | Strong first impression at repository width |
+| GitHub social preview | 1280 × 640 | JPEG | Legible, distinctive 2:1 thumbnail under 1 MB |
+| Release card | 1200 × 675 | PNG | Release marker integrated into the art |
+| Product gallery | 1270 × 760 | PNG | Product metaphor understandable at a glance |
+| Launch post | 1200 × 1500 | JPEG | Purpose-built vertical rhythm, not a wide crop |
+| Community square | 1080 × 1080 | PNG | Compact hierarchy and recognizable silhouette |
 
-GitHub recommends `1280 x 640` for best social-preview display and requires the upload to remain below 1 MB. The compositor saves this asset as an optimized JPEG and fails if it is still too large.
+## Exact copy
 
-## Copy hierarchy
+Use only manifest or user-approved values: project name, one concise tagline, and an optional release label. Do not add features, commands, metrics, customers, badges, or claims.
 
-Use only values present in the manifest or explicitly provided by the user:
+Request exact text from ImageGen and verify it visually. A successful image must contain no unintended readable strings. Retry a localized copy error at most twice while preserving the accepted design.
 
-1. optional eyebrow or release label;
-2. project name;
-3. one concise tagline;
-4. optional repository host/path.
+## Full-canvas invariants
 
-Do not place feature lists, installation commands, badges, or paragraphs on these assets. Keep the title to two lines and the tagline to three lines. If copy does not fit, shorten it in the manifest instead of shrinking it into illegibility.
-
-## Safe areas
-
-- Keep essential copy at least 7% of canvas width from every edge.
-- Reserve the left 56% for deterministic copy in wide assets.
-- Reserve the lower 42% for deterministic copy in square and portrait assets.
-- Keep high-detail generated artwork primarily on the right.
-- Do not put essential artwork in the outer 5%; crops and embeds may hide it.
-- Use a solid or strongly darkened text region. Do not rely on a busy generated texture for contrast.
-
-## Background invariants
-
-The generated master background must survive wide, square, and portrait crops. It must contain no readable text, characters resembling text, logos, watermarks, badges, interface screenshots, or fake product claims. It may contain abstract symbols only when they do not resemble a third-party mark.
+- Typography, visual metaphor, and layout must feel authored together.
+- Do not create empty copy-safe zones, generic translucent panels, or centered title-over-background templates.
+- Keep essential content outside the outer five percent.
+- Generate portrait and square assets specifically for those aspect ratios.
+- Local processing may resize, compress, compare, and verify; it must not become the default design layer.

@@ -1,25 +1,43 @@
 # repo-visuals
 
-Turn an open-source repository into a launch-ready visual identity.
+Make an open-source repository look like something people want to try.
 
-[![Version](https://img.shields.io/badge/version-0.2.0-B7FF5A?style=flat-square&labelColor=050806)](https://github.com/Sheldon715/repo-visuals)
+[![Version](https://img.shields.io/badge/version-0.3.0-B7FF5A?style=flat-square&labelColor=050806)](https://github.com/Sheldon715/repo-visuals)
 [![License: MIT](https://img.shields.io/badge/license-MIT-80F5D2?style=flat-square&labelColor=050806)](LICENSE)
 
-`repo-visuals` is an Agent Skill that reads public repository context, proposes three genuinely different art directions, locks one reusable visual system, and exports six launch assets with exact local typography.
+`repo-visuals` is an Agent Skill that turns repository context into complete ImageGen launch designs. ImageGen owns the whole canvas—typography, composition, product metaphor, texture, and hierarchy—while the Skill controls the creative brief, exact copy, review gates, and cross-format consistency.
 
-![Pulsecheck repository before and after](examples/pulsecheck/before-after.png)
+![Pulsecheck complete ImageGen poster](examples/pulsecheck/v0.3/readme-poster.png)
 
-## Three directions, not three colorways
+## The canvas is the design
 
-The Skill starts with distinct visual concepts instead of committing to the first attractive image. Each direction includes its own composition, palette, rationale, and text-free generation prompt.
+Earlier versions generated background artwork and placed ordinary text on top. It was reliable, but it looked like a template.
 
-![Pulsecheck visual direction board](examples/pulsecheck/direction-board.png)
+V0.3 instead gives ImageGen a structured design sketch:
 
-The chosen direction becomes a `visual-lock.json`: the source of truth for palette, copy, layout, artwork, and future release updates.
+- what the product should become visually;
+- how the grid and hierarchy behave;
+- where typography interacts with the subject;
+- exact text and punctuation;
+- palette, material language, and anti-patterns.
 
-## One identity, six useful assets
+For the Pulsecheck example, the title is the main visual object: monitoring signals pass through the letterforms and connect them to the diagnostic instrument. Nothing was locally typeset over this image.
 
-![Pulsecheck launch kit contact sheet](examples/pulsecheck/selected/contact-sheet.png)
+The built-in ImageGen result was generated at `1774 × 887` with both requested lines rendered correctly.
+
+## Full-canvas workflow
+
+1. Inspect README and package metadata.
+2. Plan three different concepts, each with its own sketch and typographic behavior.
+3. Generate a complete direction poster for each concept.
+4. Reject misspellings, extra words, weak hierarchy, generic text boxes, and invented claims.
+5. Lock the selected complete artwork as the identity reference.
+6. Generate each target aspect ratio as a new complete composition.
+7. Resize or compress locally only after the authored design passes review.
+
+If an image has one localized defect, the Skill requests a targeted edit while preserving everything else. It stops after two failed copy repairs instead of silently replacing the design with a template. The old deterministic compositor remains available only when the user explicitly prioritizes exact text over integrated art direction.
+
+## Six launch formats
 
 | Asset | Size | Typical use |
 | --- | ---: | --- |
@@ -30,19 +48,12 @@ The chosen direction becomes a `visual-lock.json`: the source of truth for palet
 | Launch post | 1200 × 1500 | Social launch posts |
 | Community square | 1080 × 1080 | Community directories and announcements |
 
-AI creates the artwork; deterministic Pillow scripts add the real project name, tagline, release, crop, contrast, and dimensions. The image model never needs to spell your product copy.
+Portrait and square outputs are regenerated for their own composition—not cropped from one universal background.
 
 ## Install
 
-Install the Skill from GitHub:
-
 ```bash
 npx skills add Sheldon715/repo-visuals@repo-visuals
-```
-
-Or copy `skills/repo-visuals` into the skills directory used by your agent, then install the local compositor dependency:
-
-```bash
 python -m pip install Pillow
 ```
 
@@ -50,34 +61,22 @@ Python 3.11 or newer is required.
 
 ## Use
 
-Ask your agent:
-
 ```text
-Use $repo-visuals to create a launch identity for this repository.
-Show me three distinct directions before producing the final kit.
+Use $repo-visuals to create three complete launch directions for this repository.
+Make the typography part of the artwork, then adapt the selected identity
+into a README hero, GitHub social preview, and launch post.
 ```
 
-You can preserve existing brand constraints:
+You can add constraints:
 
 ```text
-Use $repo-visuals for v1.4.0. Keep our logo and cobalt blue,
-but make the three concepts editorial, technical, and kinetic.
+Keep our cobalt brand color and existing logo. Avoid generic SaaS gradients.
+Use only the product name, tagline, and v1.4.0—do not invent claims.
 ```
 
-The workflow is:
+Generated files default to `output/repo-visuals/`. Repository source stays local; only compact prompts and explicitly selected image references go to the configured image-generation tool.
 
-1. inspect public-facing repository metadata and infer the project type;
-2. plan three distinct visual directions;
-3. generate one text-free master artwork for each direction;
-4. compare GitHub social previews on a direction board;
-5. lock the selected system in `visual-lock.json`;
-6. export six exact assets and a QA contact sheet.
-
-Generated files default to `output/repo-visuals/` in the target project. Repository source stays local; only the compact visual prompt and explicitly selected references go to the configured image-generation tool.
-
-## Run the deterministic pipeline directly
-
-Create a repository manifest and direction plan:
+## Run the planning scripts
 
 ```bash
 python skills/repo-visuals/scripts/inspect_repo.py . \
@@ -88,36 +87,38 @@ python skills/repo-visuals/scripts/plan_directions.py \
   --out output/repo-visuals/directions.json
 ```
 
-After generating a text-free background for the selected direction:
+After approving a complete direction poster:
 
 ```bash
 python skills/repo-visuals/scripts/lock_direction.py \
   --manifest output/repo-visuals/manifest.json \
   --directions output/repo-visuals/directions.json \
   --select signal-terminal \
-  --background path/to/background.png \
+  --artwork output/repo-visuals/signal-terminal/complete-poster.png \
   --out output/repo-visuals/visual-lock.json
 
-python skills/repo-visuals/scripts/compose_visual.py \
+python skills/repo-visuals/scripts/plan_assets.py \
   --lock output/repo-visuals/visual-lock.json \
-  --background path/to/background.png \
-  --out-dir output/repo-visuals
-
-python skills/repo-visuals/scripts/build_contact_sheet.py \
-  --input-dir output/repo-visuals \
-  --out output/repo-visuals/contact-sheet.png
+  --out output/repo-visuals/asset-prompts.json
 ```
 
-PowerShell accepts the same commands on one line.
+Export an approved, aspect-ratio-matched ImageGen result:
 
-## What v0.2 adds
+```bash
+python skills/repo-visuals/scripts/export_generated.py \
+  --input output/repo-visuals/github-social-generated.png \
+  --width 1280 --height 640 --format JPEG \
+  --out output/repo-visuals/github-social.jpg
+```
 
-- project-type inference for CLI, library, developer tool, web app, mobile app, and game repositories;
-- three direction presets with reviewable prompts and rationale;
-- reusable visual locks instead of one-off prompt output;
-- landscape, portrait, and square composition systems;
-- six production-sized assets plus direction and contact sheets;
-- a complete Pulsecheck Before/After example.
+## V0.3
+
+- complete ImageGen compositions replace background-plus-text templates;
+- direction plans now include explicit grid, type-zone, visual-zone, and hierarchy sketches;
+- exact-copy QA and bounded targeted retries;
+- aspect-specific full-canvas prompt generation;
+- identity-reference workflow for consistent future assets;
+- ratio-safe export that refuses destructive crops.
 
 The Skill does not publish images, edit repository settings, generate logos, or invent product claims.
 

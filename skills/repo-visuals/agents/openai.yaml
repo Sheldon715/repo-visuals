@@ -1,4 +1,4 @@
 interface:
   display_name: "Repo Visuals"
-  short_description: "Turn a repository into a reusable visual launch identity"
-  default_prompt: "Use $repo-visuals to propose three directions, lock one visual identity, and create a complete launch kit for this repository."
+  short_description: "Generate fully art-directed launch visuals for a repository"
+  default_prompt: "Use $repo-visuals to generate three complete ImageGen directions with integrated typography, lock one identity, and adapt it into a launch kit."

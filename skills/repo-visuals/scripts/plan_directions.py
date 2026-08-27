@@ -21,6 +21,12 @@ DIRECTION_PRESETS: tuple[dict[str, Any], ...] = (
             "foreground": "#F4FFE8",
         },
         "layout": {"surface": "dark", "focal_x": 0.67, "density": "precise"},
+        "sketch": {
+            "grid": "asymmetric 5-column poster grid",
+            "type_zone": "project name integrated into the left-center instrument panel",
+            "visual_zone": "monitoring instrument occupies the right two-thirds",
+            "hierarchy": "small category label, dominant product name, quiet one-line promise",
+        },
         "style": "tactile terminal instrumentation, luminous signal traces, crisp technical editorial art",
         "subject": "a compact command-line monitoring instrument built from pulse traces, status nodes, and modular terminal-like planes",
     },
@@ -35,6 +41,12 @@ DIRECTION_PRESETS: tuple[dict[str, Any], ...] = (
             "foreground": "#111318",
         },
         "layout": {"surface": "light", "focal_x": 0.66, "density": "editorial"},
+        "sketch": {
+            "grid": "Swiss 12-column editorial grid with deliberate overlaps",
+            "type_zone": "large product name crosses the grid and interacts with routing lines",
+            "visual_zone": "diagram modules build a diagonal path from lower-left to upper-right",
+            "hierarchy": "oversized title, compact subtitle, tiny publication metadata",
+        },
         "style": "Swiss editorial poster, blueprint geometry, screen-print texture, confident asymmetric composition",
         "subject": "an abstract open-source system diagram made from bold status circles, routing lines, modular cards, and measured grid marks",
     },
@@ -49,6 +61,12 @@ DIRECTION_PRESETS: tuple[dict[str, Any], ...] = (
             "foreground": "#FFF5E8",
         },
         "layout": {"surface": "dark", "focal_x": 0.68, "density": "bold"},
+        "sketch": {
+            "grid": "radial poster system with an offset typographic anchor",
+            "type_zone": "product name cuts through the pulse field as part of the composition",
+            "visual_zone": "concentric uptime pulse dominates the center-right",
+            "hierarchy": "bold title, short promise, one restrained release marker",
+        },
         "style": "bold kinetic graphic design, layered paper depth, radiant pulse rings, sharp contemporary poster art",
         "subject": "a dynamic uptime pulse moving through a network of endpoints, with bold concentric waves and clear status transitions",
     },
@@ -62,23 +80,32 @@ def build_prompt(project: dict[str, Any], preset: dict[str, Any]) -> dict[str, s
     brand = preset["brand"]
     return {
         "use_case": "ads-marketing",
-        "asset_type": "text-free master artwork for a coordinated open-source launch identity",
+        "asset_type": "complete 2:1 open-source launch poster including integrated typography",
         "primary_request": (
             f"Create the {preset['name']} visual direction for {name}, a {project_type} "
             f"described as: {tagline}. Depict {preset['subject']}."
         ),
         "style": preset["style"],
         "composition": (
-            "Adaptable composition for 2:1, 16:9, square, and 4:5 crops; quiet copy-safe "
-            "space on the left in wide crops and in the lower third for square or portrait crops; "
-            "main visual focus in the upper-right center; important detail away from all edges"
+            f"{preset['sketch']['grid']}; {preset['sketch']['type_zone']}; "
+            f"{preset['sketch']['visual_zone']}; {preset['sketch']['hierarchy']}. "
+            "Treat typography, shapes, texture, and subject as one authored composition—not "
+            "artwork with a text box placed on top."
         ),
         "palette": ", ".join(
             (brand["background"], brand["primary"], brand["secondary"], brand["foreground"])
         ),
+        "text": (
+            f'Render exactly these two lines and no other readable copy: "{name}" and '
+            f'"{project["tagline"]}" Spell every character verbatim.'
+        ),
+        "typography": (
+            "Custom display typography that belongs to the visual concept; strong hierarchy, "
+            "editorial spacing, crisp readable letterforms, no generic centered SaaS banner"
+        ),
         "constraints": (
-            "No text, letters, numbers, code, logos, badges, watermarks, screenshots, "
-            "interface labels, people, or third-party marks"
+            "No extra words, fake interface labels, code, logos, badges, watermarks, people, "
+            "third-party marks, generic gradient blobs, or text floating inside a plain overlay panel"
         ),
     }
 

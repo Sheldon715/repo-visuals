@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "project": {
+    "name": "pulsecheck",
+    "type": "cli"
+  },
+  "directions": [
+    {
+      "id": "signal-terminal",
+      "name": "Signal Terminal",
+      "rationale": "Feels native to developer tools while turning status and command output into a recognizable visual language.",
+      "brand": {
+        "primary": "#B7FF5A",
+        "secondary": "#80F5D2",
+        "background": "#050806",
+        "foreground": "#F4FFE8"
+      },
+      "layout": {
+        "surface": "dark",
+        "focal_x": 0.67,
+        "density": "precise"
+      },
+      "sketch": {
+        "grid": "asymmetric 5-column poster grid",
+        "type_zone": "project name integrated into the left-center instrument panel",
+        "visual_zone": "monitoring instrument occupies the right two-thirds",
+        "hierarchy": "small category label, dominant product name, quiet one-line promise"
+      },
+      "style": "tactile terminal instrumentation, luminous signal traces, crisp technical editorial art",
+      "prompt": {
+        "use_case": "ads-marketing",
+        "asset_type": "complete 2:1 open-source launch poster including integrated typography",
+        "primary_request": "Create the Signal Terminal visual direction for pulsecheck, a cli described as: Know what is up before your users do. Depict a compact command-line monitoring instrument built from pulse traces, status nodes, and modular terminal-like planes.",
+        "style": "tactile terminal instrumentation, luminous signal traces, crisp technical editorial art",
+        "composition": "asymmetric 5-column poster grid; project name integrated into the left-center instrument panel; monitoring instrument occupies the right two-thirds; small category label, dominant product name, quiet one-line promise. Treat typography, shapes, texture, and subject as one authored composition—not artwork with a text box placed on top.",
+        "palette": "#050806, #B7FF5A, #80F5D2, #F4FFE8",
+        "text": "Render exactly these two lines and no other readable copy: \"pulsecheck\" and \"Know what is up before your users do.\" Spell every character verbatim.",
+        "typography": "Custom display typography that belongs to the visual concept; strong hierarchy, editorial spacing, crisp readable letterforms, no generic centered SaaS banner",
+        "constraints": "No extra words, fake interface labels, code, logos, badges, watermarks, people, third-party marks, generic gradient blobs, or text floating inside a plain overlay panel"
+      }
+    },
+    {
+      "id": "editorial-blueprint",
+      "name": "Editorial Blueprint",
+      "rationale": "Looks more like a designed open-source publication than an AI-tool cliché, with strong contrast and memorable print energy.",
+      "brand": {
+        "primary": "#1947E5",
+        "secondary": "#F05237",
+        "background": "#F1EBD8",
+        "foreground": "#111318"
+      },
+      "layout": {
+        "surface": "light",
+        "focal_x": 0.66,
+        "density": "editorial"
+      },
+      "sketch": {
+        "grid": "Swiss 12-column editorial grid with deliberate overlaps",
+        "type_zone": "large product name crosses the grid and interacts with routing lines",
+        "visual_zone": "diagram modules build a diagonal path from lower-left to upper-right",
+        "hierarchy": "oversized title, compact subtitle, tiny publication metadata"
+      },
+      "style": "Swiss editorial poster, blueprint geometry, screen-print texture, confident asymmetric composition",
+      "prompt": {
+        "use_case": "ads-marketing",
+        "asset_type": "complete 2:1 open-source launch poster including integrated typography",
+        "primary_request": "Create the Editorial Blueprint visual direction for pulsecheck, a cli described as: Know what is up before your users do. Depict an abstract open-source system diagram made from bold status circles, routing lines, modular cards, and measured grid marks.",
+        "style": "Swiss editorial poster, blueprint geometry, screen-print texture, confident asymmetric composition",
+        "composition": "Swiss 12-column editorial grid with deliberate overlaps; large product name crosses the grid and interacts with routing lines; diagram modules build a diagonal path from lower-left to upper-right; oversized title, compact subtitle, tiny publication metadata. Treat typography, shapes, texture, and subject as one authored composition—not artwork with a text box placed on top.",
+        "palette": "#F1EBD8, #1947E5, #F05237, #111318",
+        "text": "Render exactly these two lines and no other readable copy: \"pulsecheck\" and \"Know what is up before your users do.\" Spell every character verbatim.",
+        "typography": "Custom display typography that belongs to the visual concept; strong hierarchy, editorial spacing, crisp readable letterforms, no generic centered SaaS banner",
+        "constraints": "No extra words, fake interface labels, code, logos, badges, watermarks, people, third-party marks, generic gradient blobs, or text floating inside a plain overlay panel"
+      }
+    },
+    {
+      "id": "kinetic-pulse",
+      "name": "Kinetic Pulse",
+      "rationale": "Creates launch-day energy and strong thumbnail recognition without falling back to generic purple glass objects.",
+      "brand": {
+        "primary": "#FF5A54",
+        "secondary": "#FFD166",
+        "background": "#140807",
+        "foreground": "#FFF5E8"
+      },
+      "layout": {
+        "surface": "dark",
+        "focal_x": 0.68,
+        "density": "bold"
+      },
+      "sketch": {
+        "grid": "radial poster system with an offset typographic anchor",
+        "type_zone": "product name cuts through the pulse field as part of the composition",
+        "visual_zone": "concentric uptime pulse dominates the center-right",
+        "hierarchy": "bold title, short promise, one restrained release marker"
+      },
+      "style": "bold kinetic graphic design, layered paper depth, radiant pulse rings, sharp contemporary poster art",
+      "prompt": {
+        "use_case": "ads-marketing",
+        "asset_type": "complete 2:1 open-source launch poster including integrated typography",
+        "primary_request": "Create the Kinetic Pulse visual direction for pulsecheck, a cli described as: Know what is up before your users do. Depict a dynamic uptime pulse moving through a network of endpoints, with bold concentric waves and clear status transitions.",
+        "style": "bold kinetic graphic design, layered paper depth, radiant pulse rings, sharp contemporary poster art",
+        "composition": "radial poster system with an offset typographic anchor; product name cuts through the pulse field as part of the composition; concentric uptime pulse dominates the center-right; bold title, short promise, one restrained release marker. Treat typography, shapes, texture, and subject as one authored composition—not artwork with a text box placed on top.",
+        "palette": "#140807, #FF5A54, #FFD166, #FFF5E8",
+        "text": "Render exactly these two lines and no other readable copy: \"pulsecheck\" and \"Know what is up before your users do.\" Spell every character verbatim.",
+        "typography": "Custom display typography that belongs to the visual concept; strong hierarchy, editorial spacing, crisp readable letterforms, no generic centered SaaS banner",
+        "constraints": "No extra words, fake interface labels, code, logos, badges, watermarks, people, third-party marks, generic gradient blobs, or text floating inside a plain overlay panel"
+      }
+    }
+  ]
+}

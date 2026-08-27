@@ -13,7 +13,9 @@ def main() -> None:
     parser.add_argument("--manifest", required=True)
     parser.add_argument("--directions", required=True)
     parser.add_argument("--select", required=True, help="Direction id")
-    parser.add_argument("--background", required=True)
+    artwork = parser.add_mutually_exclusive_group(required=True)
+    artwork.add_argument("--artwork", help="Approved complete direction artwork")
+    artwork.add_argument("--background", help="Legacy V0.2 background artwork")
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
 
@@ -27,12 +29,15 @@ def main() -> None:
         choices = ", ".join(item["id"] for item in direction_set["directions"])
         raise SystemExit(f"Unknown direction {args.select!r}. Choose one of: {choices}")
 
+    artwork_path = Path(args.artwork or args.background)
     payload = {
-        "schema_version": 1,
+        "schema_version": 2,
         "selected_direction": {
             "id": selected["id"],
             "name": selected["name"],
             "rationale": selected["rationale"],
+            "style": selected["style"],
+            "sketch": selected["sketch"],
         },
         "project": manifest["project"],
         "copy": manifest["copy"],
@@ -40,7 +45,8 @@ def main() -> None:
         "layout": selected["layout"],
         "assets": manifest["assets"],
         "artwork": {
-            "background": Path(args.background).name,
+            "reference": artwork_path.name,
+            "mode": "full-canvas" if args.artwork else "legacy-compositor",
             "prompt": selected["prompt"],
         },
     }

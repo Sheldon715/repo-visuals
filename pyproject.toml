@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "repo-visuals"
-version = "0.2.0"
-description = "Turn an open-source repository into a reusable launch identity and six-asset visual kit."
+version = "0.3.0"
+description = "Generate complete art-directed launch identities and visual kits for open-source repositories."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }

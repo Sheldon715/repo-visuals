@@ -1,0 +1,96 @@
+{
+  "schema_version": 2,
+  "selected_direction": {
+    "id": "signal-terminal",
+    "name": "Signal Terminal",
+    "rationale": "Feels native to developer tools while turning status and command output into a recognizable visual language.",
+    "style": "tactile terminal instrumentation, luminous signal traces, crisp technical editorial art",
+    "sketch": {
+      "grid": "asymmetric 5-column poster grid",
+      "type_zone": "project name integrated into the left-center instrument panel",
+      "visual_zone": "monitoring instrument occupies the right two-thirds",
+      "hierarchy": "small category label, dominant product name, quiet one-line promise"
+    }
+  },
+  "project": {
+    "name": "pulsecheck",
+    "tagline": "Know what is up before your users do.",
+    "release": "0.8.0",
+    "type": "cli",
+    "repository_url": "",
+    "tech_stack": [
+      "TypeScript"
+    ],
+    "source_path": "source"
+  },
+  "copy": {
+    "eyebrow": "OPEN SOURCE · VISUAL LAUNCH KIT",
+    "title": "pulsecheck",
+    "subtitle": "Know what is up before your users do.",
+    "release_label": "RELEASE v0.8.0"
+  },
+  "brand": {
+    "primary": "#B7FF5A",
+    "secondary": "#80F5D2",
+    "background": "#050806",
+    "foreground": "#F4FFE8"
+  },
+  "layout": {
+    "surface": "dark",
+    "focal_x": 0.67,
+    "density": "precise"
+  },
+  "assets": [
+    {
+      "id": "readme-hero",
+      "width": 1600,
+      "height": 900,
+      "format": "PNG"
+    },
+    {
+      "id": "github-social",
+      "width": 1280,
+      "height": 640,
+      "format": "JPEG"
+    },
+    {
+      "id": "release-card",
+      "width": 1200,
+      "height": 675,
+      "format": "PNG"
+    },
+    {
+      "id": "product-gallery",
+      "width": 1270,
+      "height": 760,
+      "format": "PNG"
+    },
+    {
+      "id": "launch-post",
+      "width": 1200,
+      "height": 1500,
+      "format": "JPEG"
+    },
+    {
+      "id": "community-square",
+      "width": 1080,
+      "height": 1080,
+      "format": "PNG"
+    }
+  ],
+  "artwork": {
+    "reference": "full-poster.png",
+    "mode": "full-canvas",
+    "prompt": {
+      "use_case": "ads-marketing",
+      "asset_type": "complete 2:1 open-source launch poster including integrated typography",
+      "primary_request": "Create the Signal Terminal visual direction for pulsecheck, a cli described as: Know what is up before your users do. Depict a compact command-line monitoring instrument built from pulse traces, status nodes, and modular terminal-like planes.",
+      "style": "tactile terminal instrumentation, luminous signal traces, crisp technical editorial art",
+      "composition": "asymmetric 5-column poster grid; project name integrated into the left-center instrument panel; monitoring instrument occupies the right two-thirds; small category label, dominant product name, quiet one-line promise. Treat typography, shapes, texture, and subject as one authored composition—not artwork with a text box placed on top.",
+      "palette": "#050806, #B7FF5A, #80F5D2, #F4FFE8",
+      "text": "Render exactly these two lines and no other readable copy: \"pulsecheck\" and \"Know what is up before your users do.\" Spell every character verbatim.",
+      "typography": "Custom display typography that belongs to the visual concept; strong hierarchy, editorial spacing, crisp readable letterforms, no generic centered SaaS banner",
+      "constraints": "No extra words, fake interface labels, code, logos, badges, watermarks, people, third-party marks, generic gradient blobs, or text floating inside a plain overlay panel"
+    }
+  }
+}
