@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "selected_direction": {
+    "id": "kinetic-pulse",
+    "name": "Kinetic Pulse",
+    "rationale": "Creates launch-day energy and strong thumbnail recognition without falling back to generic purple glass objects."
+  },
+  "project": {
+    "name": "pulsecheck",
+    "tagline": "Know what is up before your users do.",
+    "release": "0.8.0",
+    "type": "cli",
+    "repository_url": "",
+    "tech_stack": [
+      "TypeScript"
+    ],
+    "source_path": "source"
+  },
+  "copy": {
+    "eyebrow": "OPEN SOURCE · VISUAL LAUNCH KIT",
+    "title": "pulsecheck",
+    "subtitle": "Know what is up before your users do.",
+    "release_label": "RELEASE v0.8.0"
+  },
+  "brand": {
+    "primary": "#FF5A54",
+    "secondary": "#FFD166",
+    "background": "#140807",
+    "foreground": "#FFF5E8"
+  },
+  "layout": {
+    "surface": "dark",
+    "focal_x": 0.68,
+    "density": "bold"
+  },
+  "assets": [
+    {
+      "id": "readme-hero",
+      "width": 1600,
+      "height": 900,
+      "format": "PNG"
+    },
+    {
+      "id": "github-social",
+      "width": 1280,
+      "height": 640,
+      "format": "JPEG"
+    },
+    {
+      "id": "release-card",
+      "width": 1200,
+      "height": 675,
+      "format": "PNG"
+    },
+    {
+      "id": "product-gallery",
+      "width": 1270,
+      "height": 760,
+      "format": "PNG"
+    },
+    {
+      "id": "launch-post",
+      "width": 1200,
+      "height": 1500,
+      "format": "JPEG"
+    },
+    {
+      "id": "community-square",
+      "width": 1080,
+      "height": 1080,
+      "format": "PNG"
+    }
+  ],
+  "artwork": {
+    "background": "background.png",
+    "prompt": {
+      "use_case": "ads-marketing",
+      "asset_type": "text-free master artwork for a coordinated open-source launch identity",
+      "primary_request": "Create the Kinetic Pulse visual direction for pulsecheck, a cli described as: Know what is up before your users do. Depict a dynamic uptime pulse moving through a network of endpoints, with bold concentric waves and clear status transitions.",
+      "style": "bold kinetic graphic design, layered paper depth, radiant pulse rings, sharp contemporary poster art",
+      "composition": "Adaptable composition for 2:1, 16:9, square, and 4:5 crops; quiet copy-safe space on the left in wide crops and in the lower third for square or portrait crops; main visual focus in the upper-right center; important detail away from all edges",
+      "palette": "#140807, #FF5A54, #FFD166, #FFF5E8",
+      "constraints": "No text, letters, numbers, code, logos, badges, watermarks, screenshots, interface labels, people, or third-party marks"
+    }
+  }
+}

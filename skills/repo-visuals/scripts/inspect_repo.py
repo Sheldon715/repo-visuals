@@ -129,6 +129,32 @@ def detect_stack(repo: Path) -> list[str]:
     return [name for name, _ in counts.most_common(4)]
 
 
+def infer_project_type(
+    repo: Path,
+    package: dict[str, Any],
+    pyproject: dict[str, Any],
+    readme_text: str,
+) -> str:
+    """Infer a broad visual archetype without claiming product capabilities."""
+    lowered = readme_text.lower()
+    if (repo / "pubspec.yaml").exists() or (repo / "android").exists() or (repo / "ios").exists():
+        return "mobile-app"
+    if (repo / "project.godot").exists() or (repo / "Assets").exists():
+        return "game"
+    if package.get("bin") or pyproject.get("scripts") or any(
+        phrase in lowered for phrase in ("command-line", "command line", " cli ", "terminal")
+    ):
+        return "cli"
+    if any(
+        (repo / filename).exists()
+        for filename in ("next.config.js", "next.config.mjs", "astro.config.mjs", "vite.config.ts")
+    ):
+        return "web-app"
+    if package.get("main") or package.get("exports") or "library" in lowered or "sdk" in lowered:
+        return "library"
+    return "developer-tool"
+
+
 def clean_name(value: str) -> str:
     cleaned = value.strip().removeprefix("@").replace("_", " ")
     if "/" in cleaned:
@@ -152,8 +178,9 @@ def build_manifest(args: argparse.Namespace) -> dict[str, Any]:
     package = load_package_json(repo)
     pyproject = load_pyproject(repo)
     readme_path = find_readme(repo)
+    readme_text = read_text(readme_path) if readme_path else ""
     readme_heading, readme_description = extract_readme_copy(
-        read_text(readme_path) if readme_path else ""
+        readme_text
     )
 
     detected_name = (
@@ -175,6 +202,9 @@ def build_manifest(args: argparse.Namespace) -> dict[str, Any]:
     tagline = clamp_tagline(args.tagline or str(detected_description))
     version = str(args.release or detected_version).removeprefix("v")
     stack = detect_stack(repo)
+    project_type = args.project_type or infer_project_type(
+        repo, package, pyproject, readme_text
+    )
 
     return {
         "schema_version": 1,
@@ -182,6 +212,7 @@ def build_manifest(args: argparse.Namespace) -> dict[str, Any]:
             "name": name,
             "tagline": tagline,
             "release": version,
+            "type": project_type,
             "repository_url": args.repository_url or "",
             "tech_stack": stack,
             "source_path": repo.name,
@@ -203,6 +234,9 @@ def build_manifest(args: argparse.Namespace) -> dict[str, Any]:
             {"id": "readme-hero", "width": 1600, "height": 900, "format": "PNG"},
             {"id": "github-social", "width": 1280, "height": 640, "format": "JPEG"},
             {"id": "release-card", "width": 1200, "height": 675, "format": "PNG"},
+            {"id": "product-gallery", "width": 1270, "height": 760, "format": "PNG"},
+            {"id": "launch-post", "width": 1200, "height": 1500, "format": "JPEG"},
+            {"id": "community-square", "width": 1080, "height": 1080, "format": "PNG"},
         ],
         "image_prompt": {
             "use_case": "ads-marketing",
@@ -233,6 +267,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--tagline")
     parser.add_argument("--release")
     parser.add_argument("--repository-url")
+    parser.add_argument(
+        "--project-type",
+        choices=("cli", "library", "web-app", "mobile-app", "game", "developer-tool"),
+    )
     parser.add_argument("--primary", default="#8B5CF6")
     parser.add_argument("--secondary", default="#22D3EE")
     parser.add_argument("--background", default="#09090B")

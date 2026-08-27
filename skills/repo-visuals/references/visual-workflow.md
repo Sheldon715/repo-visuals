@@ -1,57 +1,80 @@
 # Visual workflow
 
-Read this reference before generating the master artwork.
+Read this reference before generating directions or selecting the final identity.
 
 ## 1. Build the manifest
-
-Run:
 
 ```bash
 python scripts/inspect_repo.py <repo-path> --out <work-dir>/manifest.json
 ```
 
-Prefer the user's explicit copy and brand choices over inferred values. Treat detected metadata as a draft.
+Treat detected metadata and project type as a draft. Prefer explicit user choices and repository evidence.
 
-## 2. Generate one master background
-
-Use the manifest's `image_prompt` as the base. Normalize it into the image tool's preferred prompt format without adding products, people, logos, claims, or narrative elements not implied by the repository.
-
-The composition must work across crops from `2:1` to `16:9`:
-
-- quiet, dark negative space on the left;
-- visual focus on the right-center;
-- detail kept away from edges;
-- no text of any kind;
-- no baked-in title or logo.
-
-Generate one background first. Create a second only if the first cannot survive the required crops or clearly conflicts with the repository.
-
-## 3. Compose exact assets
-
-Run:
+## 2. Plan three directions
 
 ```bash
-python scripts/compose_visual.py --manifest <manifest> --background <image> --out-dir <work-dir>
+python scripts/plan_directions.py \
+  --manifest <work-dir>/manifest.json \
+  --out <work-dir>/directions.json
 ```
 
-Pass `--logo <path>` only when the repository already contains a user-approved raster logo. Do not fabricate a logo for this workflow.
+The three directions must differ in visual metaphor, palette, material, energy, and composition—not merely color. Preserve the generated direction ids so later commands remain reproducible.
 
-## 4. Review together
+## 3. Generate and preview each direction
 
-Run:
+Generate one text-free background per direction with the direction's prompt. The artwork must keep copy-safe space on the left for wide crops and in the lower third for square or portrait crops.
+
+For each direction:
 
 ```bash
-python scripts/build_contact_sheet.py --input-dir <work-dir> --out <work-dir>/contact-sheet.png
+python scripts/lock_direction.py \
+  --manifest <work-dir>/manifest.json \
+  --directions <work-dir>/directions.json \
+  --select <direction-id> \
+  --background <work-dir>/<direction-id>/background.png \
+  --out <work-dir>/<direction-id>/visual-lock.json
+
+python scripts/compose_visual.py \
+  --lock <work-dir>/<direction-id>/visual-lock.json \
+  --background <work-dir>/<direction-id>/background.png \
+  --out-dir <work-dir>/<direction-id> \
+  --asset github-social
 ```
 
-Inspect the contact sheet at readable resolution. Check:
+Build the comparison board:
 
-- exact spelling and release value;
-- consistent art direction across all crops;
-- legible title and tagline;
-- no clipped logo or copy;
-- no accidental generated lettering;
-- correct dimensions and formats;
-- social preview below 1 MB.
+```bash
+python scripts/build_direction_board.py \
+  --directions <work-dir>/directions.json \
+  --previews-dir <work-dir> \
+  --out <work-dir>/direction-board.png
+```
 
-Regenerate the background only for artwork or crop failures. Change the manifest or compositor inputs for copy, color, spacing, and release corrections.
+## 4. Select and lock
+
+Prefer the direction that:
+
+- expresses the repository's product type instead of generic AI imagery;
+- remains recognizable as a small thumbnail;
+- supports every required crop;
+- makes real copy legible without covering the main artwork;
+- can plausibly support future release cards.
+
+Copy the selected lock and background into the final output directory as `visual-lock.json` and `master-background.png`. Do not merge details from multiple directions unless the user requests a new iteration.
+
+## 5. Render and review the complete kit
+
+```bash
+python scripts/compose_visual.py \
+  --lock <work-dir>/visual-lock.json \
+  --background <work-dir>/master-background.png \
+  --out-dir <work-dir>
+
+python scripts/build_contact_sheet.py \
+  --input-dir <work-dir> \
+  --out <work-dir>/contact-sheet.png
+```
+
+Inspect the contact sheet at readable resolution. Verify exact spelling, release value, crop survival, title contrast, file formats, dimensions, and the GitHub social preview's 1 MB limit.
+
+Use the existing `visual-lock.json` for later releases. Update only release copy unless the user asks to redesign the identity.

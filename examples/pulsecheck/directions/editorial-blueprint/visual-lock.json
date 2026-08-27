@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "selected_direction": {
+    "id": "editorial-blueprint",
+    "name": "Editorial Blueprint",
+    "rationale": "Looks more like a designed open-source publication than an AI-tool cliché, with strong contrast and memorable print energy."
+  },
+  "project": {
+    "name": "pulsecheck",
+    "tagline": "Know what is up before your users do.",
+    "release": "0.8.0",
+    "type": "cli",
+    "repository_url": "",
+    "tech_stack": [
+      "TypeScript"
+    ],
+    "source_path": "source"
+  },
+  "copy": {
+    "eyebrow": "OPEN SOURCE · VISUAL LAUNCH KIT",
+    "title": "pulsecheck",
+    "subtitle": "Know what is up before your users do.",
+    "release_label": "RELEASE v0.8.0"
+  },
+  "brand": {
+    "primary": "#1947E5",
+    "secondary": "#F05237",
+    "background": "#F1EBD8",
+    "foreground": "#111318"
+  },
+  "layout": {
+    "surface": "light",
+    "focal_x": 0.66,
+    "density": "editorial"
+  },
+  "assets": [
+    {
+      "id": "readme-hero",
+      "width": 1600,
+      "height": 900,
+      "format": "PNG"
+    },
+    {
+      "id": "github-social",
+      "width": 1280,
+      "height": 640,
+      "format": "JPEG"
+    },
+    {
+      "id": "release-card",
+      "width": 1200,
+      "height": 675,
+      "format": "PNG"
+    },
+    {
+      "id": "product-gallery",
+      "width": 1270,
+      "height": 760,
+      "format": "PNG"
+    },
+    {
+      "id": "launch-post",
+      "width": 1200,
+      "height": 1500,
+      "format": "JPEG"
+    },
+    {
+      "id": "community-square",
+      "width": 1080,
+      "height": 1080,
+      "format": "PNG"
+    }
+  ],
+  "artwork": {
+    "background": "background.png",
+    "prompt": {
+      "use_case": "ads-marketing",
+      "asset_type": "text-free master artwork for a coordinated open-source launch identity",
+      "primary_request": "Create the Editorial Blueprint visual direction for pulsecheck, a cli described as: Know what is up before your users do. Depict an abstract open-source system diagram made from bold status circles, routing lines, modular cards, and measured grid marks.",
+      "style": "Swiss editorial poster, blueprint geometry, screen-print texture, confident asymmetric composition",
+      "composition": "Adaptable composition for 2:1, 16:9, square, and 4:5 crops; quiet copy-safe space on the left in wide crops and in the lower third for square or portrait crops; main visual focus in the upper-right center; important detail away from all edges",
+      "palette": "#F1EBD8, #1947E5, #F05237, #111318",
+      "constraints": "No text, letters, numbers, code, logos, badges, watermarks, screenshots, interface labels, people, or third-party marks"
+    }
+  }
+}

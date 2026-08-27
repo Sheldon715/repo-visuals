@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "selected_direction": {
+    "id": "signal-terminal",
+    "name": "Signal Terminal",
+    "rationale": "Feels native to developer tools while turning status and command output into a recognizable visual language."
+  },
+  "project": {
+    "name": "pulsecheck",
+    "tagline": "Know what is up before your users do.",
+    "release": "0.8.0",
+    "type": "cli",
+    "repository_url": "",
+    "tech_stack": [
+      "TypeScript"
+    ],
+    "source_path": "source"
+  },
+  "copy": {
+    "eyebrow": "OPEN SOURCE · VISUAL LAUNCH KIT",
+    "title": "pulsecheck",
+    "subtitle": "Know what is up before your users do.",
+    "release_label": "RELEASE v0.8.0"
+  },
+  "brand": {
+    "primary": "#B7FF5A",
+    "secondary": "#80F5D2",
+    "background": "#050806",
+    "foreground": "#F4FFE8"
+  },
+  "layout": {
+    "surface": "dark",
+    "focal_x": 0.67,
+    "density": "precise"
+  },
+  "assets": [
+    {
+      "id": "readme-hero",
+      "width": 1600,
+      "height": 900,
+      "format": "PNG"
+    },
+    {
+      "id": "github-social",
+      "width": 1280,
+      "height": 640,
+      "format": "JPEG"
+    },
+    {
+      "id": "release-card",
+      "width": 1200,
+      "height": 675,
+      "format": "PNG"
+    },
+    {
+      "id": "product-gallery",
+      "width": 1270,
+      "height": 760,
+      "format": "PNG"
+    },
+    {
+      "id": "launch-post",
+      "width": 1200,
+      "height": 1500,
+      "format": "JPEG"
+    },
+    {
+      "id": "community-square",
+      "width": 1080,
+      "height": 1080,
+      "format": "PNG"
+    }
+  ],
+  "artwork": {
+    "background": "master-background.png",
+    "prompt": {
+      "use_case": "ads-marketing",
+      "asset_type": "text-free master artwork for a coordinated open-source launch identity",
+      "primary_request": "Create the Signal Terminal visual direction for pulsecheck, a cli described as: Know what is up before your users do. Depict a compact command-line monitoring instrument built from pulse traces, status nodes, and modular terminal-like planes.",
+      "style": "tactile terminal instrumentation, luminous signal traces, crisp technical editorial art",
+      "composition": "Adaptable composition for 2:1, 16:9, square, and 4:5 crops; quiet copy-safe space on the left in wide crops and in the lower third for square or portrait crops; main visual focus in the upper-right center; important detail away from all edges",
+      "palette": "#050806, #B7FF5A, #80F5D2, #F4FFE8",
+      "constraints": "No text, letters, numbers, code, logos, badges, watermarks, screenshots, interface labels, people, or third-party marks"
+    }
+  }
+}

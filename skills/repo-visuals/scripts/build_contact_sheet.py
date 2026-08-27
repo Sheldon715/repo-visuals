@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a labeled contact sheet from repo-visuals outputs."""
+"""Build a labeled contact sheet from the six repo-visuals outputs."""
 
 from __future__ import annotations
 
@@ -14,6 +14,9 @@ FILES = (
     ("README HERO · 1600 × 900", "readme-hero.png"),
     ("GITHUB SOCIAL · 1280 × 640", "github-social.jpg"),
     ("RELEASE CARD · 1200 × 675", "release-card.png"),
+    ("PRODUCT GALLERY · 1270 × 760", "product-gallery.png"),
+    ("LAUNCH POST · 1200 × 1500", "launch-post.jpg"),
+    ("COMMUNITY SQUARE · 1080 × 1080", "community-square.png"),
 )
 
 
@@ -29,15 +32,12 @@ def load_font(size: int) -> ImageFont.ImageFont:
     return ImageFont.load_default(size=size)
 
 
-def parse_args() -> argparse.Namespace:
+def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input-dir", required=True)
     parser.add_argument("--out", required=True)
-    return parser.parse_args()
+    args = parser.parse_args()
 
-
-def main() -> None:
-    args = parse_args()
     input_dir = Path(args.input_dir)
     missing = [name for _, name in FILES if not (input_dir / name).exists()]
     if missing:
@@ -45,24 +45,31 @@ def main() -> None:
 
     sheet_width = 1600
     card_width = 720
-    image_height = 405
+    preview_height = 405
     label_height = 58
     gap = 36
     outer = 62
-    positions = ((0, 0), (1, 0), (0, 1))
-    rows = 2
-    sheet_height = outer * 2 + rows * (image_height + label_height) + (rows - 1) * gap
+    columns = 2
+    rows = 3
+    sheet_height = outer * 2 + rows * (preview_height + label_height) + (rows - 1) * gap
     sheet = Image.new("RGB", (sheet_width, sheet_height), "#F4F4F5")
     draw = ImageDraw.Draw(sheet)
-    font = load_font(22)
+    label_font = load_font(22)
 
-    for (label, filename), (column, row) in zip(FILES, positions, strict=True):
+    for index, (label, filename) in enumerate(FILES):
+        column = index % columns
+        row = index // columns
         x = outer + column * (card_width + gap)
-        y = outer + row * (image_height + label_height + gap)
+        y = outer + row * (preview_height + label_height + gap)
         source = Image.open(input_dir / filename).convert("RGB")
-        thumb = ImageOps.fit(source, (card_width, image_height), Image.Resampling.LANCZOS)
-        sheet.paste(thumb, (x, y))
-        draw.text((x, y + image_height + 16), label, font=font, fill="#18181B")
+        thumb = ImageOps.contain(source, (card_width, preview_height), Image.Resampling.LANCZOS)
+        frame = Image.new("RGB", (card_width, preview_height), "#111318")
+        frame.paste(
+            thumb,
+            ((card_width - thumb.width) // 2, (preview_height - thumb.height) // 2),
+        )
+        sheet.paste(frame, (x, y))
+        draw.text((x, y + preview_height + 16), label, font=label_font, fill="#18181B")
 
     destination = Path(args.out)
     destination.parent.mkdir(parents=True, exist_ok=True)

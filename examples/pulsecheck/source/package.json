@@ -1,0 +1,9 @@
+{
+  "name": "pulsecheck",
+  "version": "0.8.0",
+  "description": "Monitor health endpoints from the terminal without the dashboard noise.",
+  "bin": {
+    "pulsecheck": "dist/index.js"
+  },
+  "type": "module"
+}
