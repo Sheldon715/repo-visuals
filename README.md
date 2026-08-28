@@ -9,6 +9,8 @@ Make an open-source repository look like something people want to try.
 
 ![Pulsecheck complete ImageGen poster](examples/pulsecheck/v0.3/readme-poster.png)
 
+![15-second repo-visuals workflow demo](examples/pulsecheck/v0.3/demo.gif)
+
 ## The canvas is the design
 
 Earlier versions generated background artwork and placed ordinary text on top. It was reliable, but it looked like a template.
@@ -53,9 +55,14 @@ Portrait and square outputs are regenerated for their own composition—not crop
 ## Install
 
 ```bash
-npx skills add Sheldon715/repo-visuals@repo-visuals
+npx skills add https://github.com/Sheldon715/repo-visuals/tree/main/skills/repo-visuals
+# Or use the repository shorthand:
+# npx skills add Sheldon715/repo-visuals@repo-visuals
 python -m pip install Pillow
 ```
+
+The direct path works with the open `skills` CLI across Codex, Claude Code,
+Cursor, OpenCode, and other compatible agents.
 
 Python 3.11 or newer is required.
 
@@ -127,6 +134,12 @@ The Skill does not publish images, edit repository settings, generate logos, or 
 ```bash
 python -m unittest discover -s tests -v
 python C:/path/to/skill-creator/scripts/quick_validate.py skills/repo-visuals
+```
+
+Regenerate the shareable workflow demo with:
+
+```bash
+python examples/pulsecheck/build_demo_gif.py
 ```
 
 ## License
